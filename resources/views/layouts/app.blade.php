@@ -18,14 +18,17 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/layout.css') }}" rel="stylesheet"> <!-- asset関数を使うことでpublicディレクトリを参照できる -->
+    <link href="{{ asset('css/utility.css') }}" rel="stylesheet">
+
     @yield('css')
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    <img src="{{asset('images/films-logo-w.png')}}" alt="" class="navbar-logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -73,9 +76,12 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="main">
             @yield('content')
         </main>
+        <footer class="footer p20">
+            <small class="copyright">films 2020 copyright</small>
+        </footer>
     </div>
 </body>
 </html>
