@@ -1,20 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
-<p>仮仮仮</p>
-<div class="row justify-content-center">
-	<div class="col-md-4">
-		<div class="card mb50">
-			<div class="card-body">
-				<div class="image-wrapper"><img src="{{ asset('images/sample-movie.png')}}" alt="" class="film-image" width="300",height="300"></div>
-				<h3 class="h3 film-title">タイトル</h3>
-				<p class="description">
-					レビュー本文
-				</p>
-				<a href="" class="btn btn-secondary detail-btn">詳細を読む</a>
+	<div class="row justify-content-center">
+		@foreach ($results['results'] as $item)
+		<div class="col-md-4">
+			<div class="card mb50">
+				<div class="card-body">
+					<div class="image-wrapper"><img src="https://image.tmdb.org/t/p/w300{{ $item['poster_path'] }}" alt="" class="film-image" ></div>
+					<h3 class="h3 film-title text-center">{{ $item['title'] }}</h3>
+					<p class="description text-center">
+						公開日 {{ $item['release_date'] }}
+					</p>
+					<a href="" class="btn btn-secondary detail-btn">詳細を読む</a>
+				</div>
 			</div>
 		</div>
+		@endforeach
 	</div>
-</div>
 
 @endsection
