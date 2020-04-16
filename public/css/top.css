@@ -1,12 +1,11 @@
 .image-wrapper {
     text-align: center;
 }
-.book-image {
-    height: 150px;
+.film-image {
     margin-bottom: 20px;
     object-fit: cover;
 }
-.book-title {
+.film-title {
     height: 3.5em;
     overflow: hidden;
 }
@@ -23,4 +22,18 @@
 }
 .pagination {
     justify-content: center;
+}
+
+.review-main {
+    width: 70%;
+}
+.review-image {
+    width: 30%;
+}
+.review-image img {
+    max-width: 100%;
+}
+.btn-back {
+    width: 10em;
+    margin: auto;
 }

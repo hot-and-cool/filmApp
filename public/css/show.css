@@ -1,0 +1,32 @@
+.review-main {
+    width: 70%;
+}
+.review-image {
+    width: 30%;
+}
+.review-image img {
+    max-width: 100%;
+}
+.btn-back {
+    width: 10em;
+    margin: auto;
+}
+
+/*レーティング*/
+.star-rating {
+  position: relative;
+  display:inline-block;
+  font-size: 25px;
+}
+.star-rating .star-rating-item{
+  position:absolute;
+  overflow: hidden;
+}
+.star-rating .star-rating-item:before{
+  content:"★★★★★";
+  color: #ffcc33;
+}
+.star-rating:after {
+  content:"★★★★★";
+  color: #ccc;
+}
