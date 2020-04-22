@@ -1,3 +1,10 @@
+input[type="text"],
+input[type="password"],
+textarea,
+select {
+    outline: none;
+}
+
 .navbar {
     background-color: #222831;
     color: #fff;
@@ -39,4 +46,16 @@
     height: 100vh;
     position: absolute;
     width: 100%;
+}
+
+.search-form {
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    background: 0 0;
+    border: none;
 }

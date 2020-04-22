@@ -15,6 +15,8 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -54,6 +56,10 @@
                                 </li>
                             @endif
                         @else
+                            {!! Form::open(['route' => 'index', 'method' => 'GET', 'class' => 'search-form mr10']) !!}
+                              {!! Form::text('search-movie', $searchWord, ['class' => 'form-control', 'placeholder' => 'Search Words']) !!}
+                              {!! Form::button('<i class="fa fa-search" aria-hidden="true"></i>', ['class' => 'btn search-icon', 'type' => 'submit']) !!}
+                            {!! Form::close() !!}
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
