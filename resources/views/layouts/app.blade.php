@@ -57,7 +57,7 @@
                             @endif
                         @else
                             {!! Form::open(['route' => 'index', 'method' => 'GET', 'class' => 'search-form mr10']) !!}
-                              {!! Form::text('search-movie', $searchWord, ['class' => 'form-control', 'placeholder' => 'Search Words']) !!}
+                              {!! Form::text('search_movie', $searchWord, ['class' => 'form-control', 'placeholder' => 'Search Words']) !!}
                               {!! Form::button('<i class="fa fa-search" aria-hidden="true"></i>', ['class' => 'btn search-icon', 'type' => 'submit']) !!}
                             {!! Form::close() !!}
                             <li class="nav-item dropdown">

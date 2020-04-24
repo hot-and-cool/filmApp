@@ -30,3 +30,21 @@
   content:"★★★★★";
   color: #ccc;
 }
+
+.cast-pic {
+  border-radius: 200px;
+  width: 80px;
+}
+
+.similar-movies {
+  margin: 10px 0 5px;
+}
+
+.small-wrapper{
+  display: inline-block;
+  vertical-align: top;
+}
+
+.image-size {
+  height: 300px;
+}

@@ -1,7 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-<h1 class='pagetitle container'>@if (empty($searchWord)) Trend @else Result @endif</h1>
+{!! Form::open(['route' => 'index', 'method' => 'GET' ]) !!}
+	<div class="sort-wrapper">
+		{!! Form::submit('Trend',['name' => 'trend', 'class' => 'pagetitle btn']) !!}
+		{!! Form::submit('Top Rated',['name' => 'top_rated', 'class' => 'pagetitle btn']) !!}
+		{!! Form::submit('Latest',['name' => 'latest', 'class' => 'pagetitle btn']) !!}
+		{!! Form::submit('Upcomming',['name' => 'upcoming', 'class' => 'pagetitle btn']) !!}
+	</div>
+{!! Form::close() !!}
 	<div class="row justify-content-center">
 		@foreach ($items['results'] as $item)
 		<div class="col-md-4">
