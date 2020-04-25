@@ -2,6 +2,7 @@
     text-align: center;
 }
 .film-image {
+    height: 450px;
     margin-bottom: 20px;
     object-fit: cover;
 }

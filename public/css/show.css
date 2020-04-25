@@ -36,7 +36,7 @@
   width: 80px;
 }
 
-.similar-movies {
+.recommend-movies {
   margin: 10px 0 5px;
 }
 
@@ -47,4 +47,8 @@
 
 .image-size {
   height: 300px;
+}
+
+.over-view {
+  padding: 20px 0 20px;
 }
