@@ -36,19 +36,81 @@
   width: 80px;
 }
 
-.recommend-movies {
-  margin: 10px 0 5px;
-}
-
-.small-wrapper{
-  display: inline-block;
-  vertical-align: top;
-}
-
 .image-size {
   height: 300px;
+  width: 200px;
+  border-radius: 2px;
 }
 
 .over-view {
   padding: 20px 0 20px;
 }
+
+.movie-list {
+  margin: 0 10px 20px 0;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.is-hidden {
+  display: none;
+}
+
+.movie-list:nth-child(5n) {
+  margin-right: 0;
+}
+
+.more {
+  float: right;
+}
+
+
+.sns-wrapper a{
+  text-decoration: none;
+}
+
+.sns-wrapper .fa-twitter-square {
+  color: #1da1f2;
+}
+
+.sns-wrapper .fa-facebook-square {
+  color: #3B5998;
+}
+
+/*insta*/
+.insta {/*アイコンの背景*/
+  position: relative;/*相対配置*/
+  display: inline-block;
+  width: 29px;/*幅*/
+  height: 29px;/*高さ*/
+  vertical-align: middle;/*垂直中央に*/
+  background: -webkit-linear-gradient(135deg, #427eff 0%, #f13f79 70%) no-repeat;
+  background: linear-gradient(135deg, #427eff 0%, #f13f79 70%) no-repeat;/*グラデーション①*/
+  overflow: hidden;/*はみ出た部分を隠す*/
+  border-radius: 8px;/*角丸に*/
+}
+
+.insta:before {/*グラデーションを重ねるため*/
+  content: '';
+  position: absolute;/*絶対配置*/
+  top: 24px;/*ずらす*/
+  left: -18px;/*ずらす*/
+  width: 70px;/*グラデーションカバーの幅*/
+  height: 70px;/*グラデーションカバーの高さ*/
+  background: -webkit-radial-gradient(#ffdb2c 10%, rgba(255, 105, 34, 0.65) 55%, rgba(255, 88, 96, 0) 70%);
+  background: radial-gradient(#ffdb2c 10%, rgba(255, 105, 34, 0.65) 55%, rgba(255, 88, 96, 0) 70%);/*グラデーション②*/
+}
+
+.fa-instagram {/*アイコン*/
+  color: #FFF;/*白に*/
+  position: relative;/*z-indexを使うため*/
+  z-index: 2;/*グラデーションより前に*/
+  font-size: 24px;/*アイコンサイズ*/
+  top: 2px;/*上下にずらす*/
+  left: 4.1px;/*左右にずらす*/
+}
+
+.sns-wrapper a:hover {
+  color: #ccc;
+}
+/**/

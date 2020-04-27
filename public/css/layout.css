@@ -5,6 +5,10 @@ select {
     outline: none;
 }
 
+ul {
+    list-style: none;
+}
+
 .navbar {
     background-color: #222831;
     color: #fff;
@@ -58,4 +62,10 @@ select {
     right: 5px;
     background: 0 0;
     border: none;
+}
+
+.clearfix::after {
+   content: "";
+   display: block;
+   clear: both;
 }

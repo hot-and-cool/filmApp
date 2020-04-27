@@ -39,6 +39,12 @@
 .mr20 {
     margin-right: 20px !important;
 }
+.mr30 {
+    margin-right: 30px !important;
+}
+.mr70 {
+    margin-right: 70px !important;
+}
 
 .mb0 {
     margin-bottom: 0 !important;
@@ -180,4 +186,8 @@
 
 .text-white {
     color: #fff;
+}
+
+.is-hidden {
+    display: none;
 }

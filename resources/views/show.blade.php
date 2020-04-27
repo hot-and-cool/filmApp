@@ -29,10 +29,24 @@
           <p>作品のあらすじは秘密です。</p>
           @endif
         </div>
+        <div class='crews pt30'>
+          @if (isset($director))
+          <div class="director">
+            <p>監督</p>
+            <a href="{{ route('credit', ['person_id' => $director['id']]) }}" class='btn btn-secondary mb10'>{{ $director['name'] }}</a>
+          </div>
+          @endif
+          @if (isset($writer))
+          <div class="writer">
+            <p>脚本</p>
+            <a href="{{ route('credit', ['person_id' => $writer['id']]) }}" class='btn btn-secondary mb10'>{{ $writer['name'] }}</a>
+          </div>
+          @endif
+        </div>
         <div class='casts pt30'>
           <p>出演者</p>
         @foreach ($casts as $cast)
-          <div class='btn btn-secondary mb10'>{{ $cast['name'] }}</div>
+          <a href="{{ route('credit', ['person_id' => $cast['id']]) }}" class='btn btn-secondary mb10'>{{ $cast['name'] }}</a>
         @endforeach
         </div>
       </section>  
@@ -46,14 +60,35 @@
     </div>
     <div class="card-body recommend-movies">
       <h3>関連作品</h3>
-    @foreach ($recommendMovies as $recommendMovie)
-      <div class="small-wrapper">
-        <a href="{{ route('show',['id' => $recommendMovie['id']]) }}"><img class="image-size" src="https://image.tmdb.org/t/p/w200{{ $recommendMovie['poster_path'] }}"></img></a>
+      <div class="movies-container text-center is-hidden clearfix">
+      @foreach ($recommendMovies as $recommendMovie)
+        <li class="movie-list">
+          <a href="{{ route('show', ['id' => $recommendMovie['id']]) }}"><img class="image-size" src="https://image.tmdb.org/t/p/w200{{ $recommendMovie['poster_path'] }}"></img></a>
+        </li>
+      @endforeach
+        <button class='btn btn-secondary more'>movie more</button>
       </div>
-    @endforeach
     </div>
     <a href="{{ route('index', ['search-movie' => $searchWord]) }}" class='btn btn-info btn-back mb20'>一覧へ戻る</a>
   </div>
 </div>
 
 @endsection
+
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script>
+$(function () {
+  var moreNum = 10;
+  $('.movies-container').fadeIn(0);
+  $('.movie-list:nth-child(n + ' + (moreNum + 1) + ')').addClass('is-hidden');
+  $('.more').on('click', function() {
+    $('.movie-list.is-hidden').slice(0, moreNum).removeClass('is-hidden');
+    $('body').animate({
+      scrollTop: $(document).height()
+    },1000);
+    if ($('.movie-list.is-hidden').length == 0) {
+        $('.more').fadeOut();
+    }
+  })
+});
+</script>
