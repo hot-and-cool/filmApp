@@ -4,6 +4,10 @@
     <link href="{{ asset('css/show.css') }}" rel="stylesheet">
 @endsection
 
+@section('js')
+      <script src="{{ asset('js/show.js') }}" defer></script>
+@endsection
+
 @section('content')
 <div class="container">
   <div class="card">
@@ -56,6 +60,13 @@
       @else
 			  <a href="{{ $item['homepage'] }}" target="_blank"><img src= "https://image.tmdb.org/t/p/w300{{ $item['poster_path'] }}" class="film-image"></a>
       @endempty
+        <div class="clip-container">
+        @if(isset($clipedMovie))
+          <a href="" data-movie_id="{{ $item['id'] }}" class='clip is-active'><i id="clip-icon" class="clip-icon fas fa-clipboard-check fa-3x is-active"></i></a>
+        @else
+          <a href="" data-movie_id="{{ $item['id'] }}" class='clip'><i id="clip-icon" class="fas fa-clipboard fa-3x"></i></a>
+        @endif
+        </div>
       </aside>
     </div>
     <div class="card-body recommend-movies">
@@ -75,20 +86,3 @@
 
 @endsection
 
-<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<script>
-$(function () {
-  var moreNum = 10;
-  $('.movies-container').fadeIn(0);
-  $('.movie-list:nth-child(n + ' + (moreNum + 1) + ')').addClass('is-hidden');
-  $('.more').on('click', function() {
-    $('.movie-list.is-hidden').slice(0, moreNum).removeClass('is-hidden');
-    $('body').animate({
-      scrollTop: $(document).height()
-    },1000);
-    if ($('.movie-list.is-hidden').length == 0) {
-        $('.more').fadeOut();
-    }
-  })
-});
-</script>

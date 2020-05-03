@@ -4,6 +4,10 @@
     <link href="{{ asset('css/show.css') }}" rel="stylesheet">
 @endsection
 
+@section('js')
+    <script src="{{ asset('js/show.js') }}"></script>
+@endsection
+
 @section('content')
 <div class="container">
   <div class="card">
@@ -62,21 +66,3 @@
 </div>
 
 @endsection
-
-<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<script>
-$(function () {
-  var moreNum = 10;
-  $('.movies-container').fadeIn(0);
-  $('.movie-list:nth-child(n + ' + (moreNum + 1) + ')').addClass('is-hidden');
-  $('.more').on('click', function() {
-    $('.movie-list.is-hidden').slice(0, moreNum).removeClass('is-hidden');
-    $('body').animate({
-      scrollTop: $(document).height()
-    },1000);
-    if ($('.movie-list.is-hidden').length == 0) {
-        $('.more').fadeOut();
-    }
-  })
-});
-</script>

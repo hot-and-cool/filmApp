@@ -3,7 +3,7 @@
 }
 .film-image {
     height: 450px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     object-fit: cover;
 }
 .film-title {

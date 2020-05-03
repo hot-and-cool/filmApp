@@ -46,6 +46,21 @@
   padding: 20px 0 20px;
 }
 
+.clip-container {
+  background-color: #fef298;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.clip {
+  color: #a9a9a9;
+}
+
+.clip:hover {
+  color: #808080;
+}
+
 .movie-list {
   margin: 0 10px 20px 0;
   display: inline-block;
