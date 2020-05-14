@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('js')
+      <script src="{{ asset('js/index.js') }}" defer></script>
+@endsection
+
 @section('content')
 {!! Form::open(['route' => 'index', 'method' => 'GET' ]) !!}
 	<div class="sort-wrapper">

@@ -9,5 +9,7 @@ class Clip extends Model
     protected $fillable = [
         'movie_id',
         'user_id',
+        'title',
+        'poster_path',
     ];
 }

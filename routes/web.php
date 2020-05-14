@@ -18,6 +18,7 @@
 Auth::routes();
 
 Route::get('/', 'ReviewController@index')->name('index');
+Route::get('/mypage', 'ReviewController@showMypage')->name('mypage');
 Route::get('/{id}', 'ReviewController@show')->name('show');
 Route::get('/credit/{person_id}', 'ReviewController@credit')->name('credit');
 Route::post('/{id}/clip','ReviewController@storeClip')->name('clip');

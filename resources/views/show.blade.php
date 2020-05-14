@@ -16,7 +16,7 @@
         <div class='base-info'>
           <p class='h2 title'>{{ $item['title'] }}<span class='small pl10'>({{ $release_year }}公開)</span> </p>
           <p class='pb10 original-title text-muted'>{{ $item['original_title']}}</p>
-          <p class='pb10'>公開日:{{ $release_date }} / 制作:{{$item['production_countries'][0]['name']}} / 上映時間:{{ $item['runtime'] }}分</p>
+          <p class='pb10'>公開日:{{ $release_date }} / @isset($item['production_countries'][0]) 制作:{{$item['production_countries'][0]['name']}} / @endisset 上映時間:{{ $item['runtime'] }}分</p>
           <p class='release-date pb10'>ジャンル:
               @foreach ($item['genres'] as $genre)
                 <a href="#" class="text-primary">{{ $genre['name'] }}</a>
@@ -61,10 +61,11 @@
 			  <a href="{{ $item['homepage'] }}" target="_blank"><img src= "https://image.tmdb.org/t/p/w300{{ $item['poster_path'] }}" class="film-image"></a>
       @endempty
         <div class="clip-container">
+          <!--<div id="clip-success" class="is-hidden">Clip!</div>-->
         @if(isset($clipedMovie))
-          <a href="" data-movie_id="{{ $item['id'] }}" class='clip is-active'><i id="clip-icon" class="clip-icon fas fa-clipboard-check fa-3x is-active"></i></a>
+          <a href="" data-movie_id="{{ $item['id'] }}" class='clip is-active'><i id="clip-icon" class="clip-icon fas fa-clipboard-check fa-3x text-black"></i></a>
         @else
-          <a href="" data-movie_id="{{ $item['id'] }}" class='clip'><i id="clip-icon" class="fas fa-clipboard fa-3x"></i></a>
+          <a href="" data-movie_id="{{ $item['id'] }}" data-movie_title="{{ $item['title'] }}" data-poster_path="{{ $item['poster_path'] }}" class='clip'><i id="clip-icon" class="fas fa-clipboard fa-3x"></i></a>
         @endif
         </div>
       </aside>

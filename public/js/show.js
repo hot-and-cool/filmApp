@@ -16,7 +16,10 @@ $(function () {
   
 //clip機能
 	var movieId = $('.clip-container').children('a').data('movie_id');
-	console.log(movieId);
+	var title = $('.clip-container').children('a').data('movie_title');
+	var posterPath = $('.clip-container').children('a').data('poster_path');
+
+	console.log(posterPath);
 	$('.clip').on('click', function(e) {
 		e.preventDefault(); //リンク無効化
 		$.ajax({
@@ -28,11 +31,14 @@ $(function () {
 			dataType:'json',
 			data: {
 				'movie_id': movieId,
+				'title': title,
+				'poster_path': posterPath,
 			},
 		}).done(function() { 
 			console.log('success!');
-			$('#clip-icon').toggleClass('fas fa-clipboard-check fa-3x is-active');
+			$('#clip-icon').toggleClass('fas fa-clipboard-check fa-3x text-black');
 			$('#clip-icon').toggleClass('fas fa-clipboard fa-3x');
+			$('#clip-success').removeClass('is-hidden');
 
 		}).fail(function(XMLHttpRequest, textStatus, errorThrown){
 		    console.log(XMLHttpRequest.status);

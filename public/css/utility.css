@@ -196,10 +196,14 @@
     color: #000;
 }
 
+.text-shadow {
+    color: #212529;
+}
+
 .is-hidden {
     display: none;
 }
 
 .is-active {
-    color: #808080; 
+    display: block;
 }
