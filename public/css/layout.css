@@ -1,0 +1,71 @@
+input[type="text"],
+input[type="password"],
+textarea,
+select {
+    outline: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.navbar {
+    background-color: #222831;
+    color: #fff;
+}
+.navbar-logo {
+    height: 60px;
+    margin-right: 15px;
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: #fff;
+}
+.main {
+    background-color: #393e46;
+    min-height: 85vh;
+    padding: 30px 5%;
+}
+.pagetitle {
+    color: #fff;
+    margin-bottom: 20px;
+}
+.footer {
+    background-color: #222831;
+    text-align: center;
+}
+.copyright {
+    color: #fff;
+}
+
+.modal {
+    display: none;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.modal__bg{
+    background: rgba(0,0,0,0.8);
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+}
+
+.search-form {
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    background: 0 0;
+    border: none;
+}
+
+.clearfix::after {
+   content: "";
+   display: block;
+   clear: both;
+}

@@ -1,0 +1,40 @@
+.image-wrapper {
+    text-align: center;
+}
+.film-image {
+    height: 450px;
+    margin-bottom: 10px;
+    object-fit: cover;
+}
+.film-title {
+    height: 3.5em;
+    overflow: hidden;
+}
+.description {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.detail-btn {
+    display: block;
+    width: 80%;
+    margin: auto;
+}
+.pagination {
+    justify-content: center;
+}
+
+.review-main {
+    width: 70%;
+}
+.review-image {
+    width: 30%;
+}
+.review-image img {
+    max-width: 100%;
+}
+.btn-back {
+    width: 10em;
+    margin: auto;
+}

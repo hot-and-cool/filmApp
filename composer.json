@@ -10,8 +10,12 @@
     "require": {
         "php": "^7.2",
         "fideloper/proxy": "^4.0",
+        "guzzlehttp/guzzle": "^6.5",
         "laravel/framework": "^6.0",
-        "laravel/tinker": "^1.0"
+        "laravel/tinker": "^1.0",
+        "laravel/ui": "^1.2",
+        "laravelcollective/html": "^6.1",
+        "rakuten-ws/rws-php-sdk": " 1.*"
     },
     "require-dev": {
         "facade/ignition": "^1.4",
