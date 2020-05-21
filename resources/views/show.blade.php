@@ -14,9 +14,9 @@
     <div class="card-body d-flex">
       <section class='review-main'>
         <div class='base-info'>
-          <p class='h2 title'>{{ $item['title'] }}<span class='small pl10'>({{ $release_year }}公開)</span> </p>
+          <p class='h2 title'>{{ $item['title'] }}<span class='small pl10'>({{ $releaseYear }}公開)</span> </p>
           <p class='pb10 original-title text-muted'>{{ $item['original_title']}}</p>
-          <p class='pb10'>公開日:{{ $release_date }} / @isset($item['production_countries'][0]) 制作:{{$item['production_countries'][0]['name']}} / @endisset 上映時間:{{ $item['runtime'] }}分</p>
+          <p class='pb10'>公開日:{{ $item['release_date'] }} / @isset($item['production_countries'][0]) 制作:{{$item['production_countries'][0]['name']}} / @endisset 上映時間:{{ $item['runtime'] }}分</p>
           <p class='release-date pb10'>ジャンル:
               @foreach ($item['genres'] as $genre)
                 <a href="#" class="text-primary">{{ $genre['name'] }}</a>
@@ -53,7 +53,7 @@
           <a href="{{ route('credit', ['person_id' => $cast['id']]) }}" class='btn btn-secondary mb10'>{{ $cast['name'] }}</a>
         @endforeach
         </div>
-      </section>  
+      </section>
       <aside class='review-image pl10'>
       @empty($item['poster_path'])
         <img src= "{{ asset('images/sample-movie.png') }}">
@@ -73,7 +73,7 @@
     <div class="card-body recommend-movies">
       <h3>関連作品</h3>
       <div class="movies-container text-center is-hidden clearfix">
-      @foreach ($recommendMovies as $recommendMovie)
+      @foreach ($recommends['results'] as $recommendMovie)
         <li class="movie-list">
           <a href="{{ route('show', ['id' => $recommendMovie['id']]) }}"><img class="image-size" src="https://image.tmdb.org/t/p/w200{{ $recommendMovie['poster_path'] }}"></img></a>
         </li>

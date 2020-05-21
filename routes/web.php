@@ -17,10 +17,9 @@
 
 Auth::routes();
 
-Route::get('/', 'ReviewController@index')->name('index');
-Route::get('/mypage', 'ReviewController@showMypage')->name('mypage');
-Route::get('/{id}', 'ReviewController@show')->name('show');
-Route::get('/credit/{person_id}', 'ReviewController@credit')->name('credit');
-Route::post('/{id}/clip','ReviewController@storeClip')->name('clip');
-
+Route::get('/', 'FilmController@index')->name('index');
+Route::get('/mypage', 'FilmController@showMypage')->name('mypage');
+Route::get('/{id}', 'FilmController@show')->name('show');
+Route::get('/credit/{person_id}', 'FilmController@credit')->name('credit');
+Route::post('/{id}/clip','FilmController@storeClip')->name('clip');
 

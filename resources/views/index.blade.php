@@ -10,7 +10,7 @@
 		{!! Form::submit('Trend',['name' => 'trend', 'class' => 'pagetitle btn']) !!}
 		{!! Form::submit('Top Rated',['name' => 'top_rated', 'class' => 'pagetitle btn']) !!}
 		{!! Form::submit('Latest',['name' => 'latest', 'class' => 'pagetitle btn']) !!}
-		{!! Form::submit('Upcomming',['name' => 'upcoming', 'class' => 'pagetitle btn']) !!}
+		{!! Form::submit('Upcoming',['name' => 'upcoming', 'class' => 'pagetitle btn']) !!}
 	</div>
 {!! Form::close() !!}
 	<div class="row justify-content-center">
@@ -25,7 +25,9 @@
 					<p class="h3 film-title">{{ $item['title'] }}</p>
 					<div class="h3 text-yellow">★{{ $item['vote_average'] }}</div>
 					<p class="description">
+					@if (isset($item['release_date']))
 						公開日 {{ $item['release_date'] }}
+					@endif
 					</p>
 					<a href="{{ route('show', ['id' => $item['id'], 'search-movie' => $searchWord] ) }}" class="btn btn-secondary detail-btn">詳細を読む</a>
 				</div>
