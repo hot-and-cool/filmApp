@@ -88,8 +88,8 @@ class FilmController extends Controller
         $directorNum = array_search('Director', $jobArray, true);
         $director = $credits['crew'][$directorNum];
         $writerNum = array_search('Writer', $jobArray, true);
+        $writer = null;
         if ($writerNum) {
-            $writer = '';
             $writer = $credits['crew'][$writerNum];
         }
 
