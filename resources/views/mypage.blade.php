@@ -3,7 +3,7 @@
 
 <div class="pagetitle">Clipした作品一覧</div>
 <div class="row justify-content-center">
-	@foreach ($myClipMovies as $myClipMovie)
+	@forelse ($myClipMovies as $myClipMovie)
 	<div class="col-md-4">
 		<div class="card mb50">
 			<div class="card-body text-center">
@@ -17,7 +17,9 @@
 			</div>
 		</div>
 	</div>
-	@endforeach
+	@empty
+	  <p class="text-white mt-5">clipした映画はありません</p>
+	@endforelse
 </div>
 {{ $myClipMovies->links() }}
 @endsection

@@ -34,7 +34,7 @@ $(function () {
 				'title': title,
 				'poster_path': posterPath,
 			},
-		}).done(function() { 
+		}).done(function() {
 			console.log('success!');
 			$('#clip-icon').toggleClass('fas fa-clipboard-check fa-3x text-black');
 			$('#clip-icon').toggleClass('fas fa-clipboard fa-3x');

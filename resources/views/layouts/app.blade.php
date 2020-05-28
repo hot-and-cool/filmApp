@@ -94,6 +94,7 @@
         </main>
         <footer class="footer p20">
             <small class="copyright">films 2020 copyright</small>
+            <br><small class="copyright">This product uses the TMDb API but is not endorsed or certified by TMDb.</small>
         </footer>
     </div>
 </body>

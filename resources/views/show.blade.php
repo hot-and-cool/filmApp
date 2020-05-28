@@ -37,20 +37,20 @@
           @if (isset($director))
           <div class="director">
             <p>監督</p>
-            <a href="{{ route('credit', ['person_id' => $director['id']]) }}" class='btn btn-secondary mb10'>{{ $director['name'] }}</a>
+            <a href="{{ route('person', ['person_id' => $director['id']]) }}" class='btn btn-secondary mb10'>{{ $director['name'] }}</a>
           </div>
           @endif
           @if (isset($writer))
           <div class="writer">
             <p>脚本</p>
-            <a href="{{ route('credit', ['person_id' => $writer['id']]) }}" class='btn btn-secondary mb10'>{{ $writer['name'] }}</a>
+            <a href="{{ route('person', ['person_id' => $writer['id']]) }}" class='btn btn-secondary mb10'>{{ $writer['name'] }}</a>
           </div>
           @endif
         </div>
         <div class='casts pt30'>
           <p>出演者</p>
         @foreach ($casts as $cast)
-          <a href="{{ route('credit', ['person_id' => $cast['id']]) }}" class='btn btn-secondary mb10'>{{ $cast['name'] }}</a>
+          <a href="{{ route('person', ['person_id' => $cast['id']]) }}" class='btn btn-secondary mb10'>{{ $cast['name'] }}</a>
         @endforeach
         </div>
       </section>
@@ -62,8 +62,8 @@
       @endempty
         <div class="clip-container">
           <!--<div id="clip-success" class="is-hidden">Clip!</div>-->
-        @if(isset($clipedMovie))
-          <a href="" data-movie_id="{{ $item['id'] }}" class='clip is-active'><i id="clip-icon" class="clip-icon fas fa-clipboard-check fa-3x text-black"></i></a>
+        @if(isset($clippedMovie))
+          <a href="" data-movie_id="{{ $item['id'] }}" data-movie_title="{{ $item['title'] }}" data-poster_path="{{ $item['poster_path'] }}" class='clip is-active'><i id="clip-icon" class="clip-icon fas fa-clipboard-check fa-3x text-black"></i></a>
         @else
           <a href="" data-movie_id="{{ $item['id'] }}" data-movie_title="{{ $item['title'] }}" data-poster_path="{{ $item['poster_path'] }}" class='clip'><i id="clip-icon" class="fas fa-clipboard fa-3x"></i></a>
         @endif
@@ -76,6 +76,7 @@
       @foreach ($recommends['results'] as $recommendMovie)
         <li class="movie-list">
           <a href="{{ route('show', ['id' => $recommendMovie['id']]) }}"><img class="image-size" src="https://image.tmdb.org/t/p/w200{{ $recommendMovie['poster_path'] }}"></img></a>
+          <p>{{ mb_strimwidth($recommendMovie['title'], 0, 28, '...') }}</p>
         </li>
       @endforeach
         <button class='btn btn-secondary more'>movie more</button>

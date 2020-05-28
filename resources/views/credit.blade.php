@@ -15,33 +15,33 @@
       <section class='review-main'>
         <div class='base-info'>
           <div class="name-info">
-          @if ($jpName)
-            <p class='h2 name'>{{ array_values($jpName)[0] }}</p>
-            <p class='pb10 original-title text-muted'>{{ $item['name'] }}</p>
+          @empty($knownAsName)
+            <p class='h2 name'>{{ $person['name'] }}</p>
           @else
-            <p class='h2 name'>{{ $item['name'] }}</p>
+            <p class='h2 name'>{{ $knownAsName[0] }}</p>
+            <p class='pb10 original-title text-muted'>{{ $person['name'] }}</p>
           @endif
           </div>
-          <div class="from">出身地：{{ $item['place_of_birth'] }}</div>
-          <div class="birthday">生年月日：{{ $item['birthday'] }}</div>
-          <div class="popularity mt30"><span class="font-weight-bold">{{ $item['popularity'] }}</span>人がフォローしています！</div>
+          <div class="from">出身地：{{ $person['place_of_birth'] }}</div>
+          <div class="birthday">生年月日：{{ $person['birthday'] }}<span class="pl-2">({{ Carbon::parse($person['birthday'])->age }}歳)</span></div>
+          <div class="popularity mt30"><span class="font-weight-bold">{{ $person['popularity'] }}</span>人がフォローしています！</div>
         </div>
       </section>  
       <aside class='review-image'>
-      @empty($item['profile_path'])
+      @empty($person['profile_path'])
         <img src= "{{ asset('images/sample-person.png') }}">
       @else
-			  <img src= "https://image.tmdb.org/t/p/w200{{ $item['profile_path'] }}" class="">
+			  <img src= "https://image.tmdb.org/t/p/w200{{ $person['profile_path'] }}" class="">
       @endempty
         <ul class="sns-wrapper d-flex pt10">
           <li class="mr30">
-            <a href="https://twitter.com/{{ $item['external_ids']['twitter_id'] }}" class="fab fa-twitter-square fa-2x" target="_blank"></a>
+            <a href="https://twitter.com/{{ $person['external_ids']['twitter_id'] }}" class="fab fa-twitter-square fa-2x" target="_blank"></a>
           </li>
           <li class="mr30">
-            <a href="https://facebook.com/{{ $item['external_ids']['facebook_id'] }}" class="fab fa-facebook-square fa-2x" target="_blank"></a>
+            <a href="https://facebook.com/{{ $person['external_ids']['facebook_id'] }}" class="fab fa-facebook-square fa-2x" target="_blank"></a>
           </li>
           <li class="mr30 insta">
-            <a href="https://instagram.com/{{ $item['external_ids']['instagram_id'] }}" class="fab fa-instagram fa-2x" target="_blank"></a>
+            <a href="https://instagram.com/{{ $person['external_ids']['instagram_id'] }}" class="fab fa-instagram fa-2x" target="_blank"></a>
           </li>
 
           <li class="twitter"></li>
@@ -53,9 +53,14 @@
       <h3>出演作品・関連作品</h3>
       <div class="movies-container text-center is-hidden clearfix">
       @foreach ($appearances as $appearance)
+      <!-- forelseでリファクタ可能？ -->
         <li class="movie-list">
+          @if (!empty($appearance['poster_path']))
           <a href="{{ route('show', ['id' => $appearance['id']]) }}"><img class="image-size" src="https://image.tmdb.org/t/p/w200{{ $appearance['poster_path'] }}"></img></a>
-          <p></p>
+          @else
+          <a href="{{ route('show', ['id' => $appearance['id']]) }}"><img class="image-size" src="{{ asset('images/sample-movie.png') }}"></img></a>
+          @endif
+          <p>{{ mb_strimwidth($appearance['title'], 0, 28, '...') }}</p>
         </li>
       @endforeach
         <button class='btn btn-secondary more'>movie more</button>

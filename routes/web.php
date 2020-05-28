@@ -20,6 +20,6 @@ Auth::routes();
 Route::get('/', 'FilmController@index')->name('index');
 Route::get('/mypage', 'FilmController@showMypage')->name('mypage');
 Route::get('/{id}', 'FilmController@show')->name('show');
-Route::get('/credit/{person_id}', 'FilmController@credit')->name('credit');
+Route::get('/credit/{person_id}', 'FilmController@showPersonPage')->name('person');
 Route::post('/{id}/clip','FilmController@storeClip')->name('clip');
 
