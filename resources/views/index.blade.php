@@ -20,7 +20,9 @@
 				<div class="card-body text-center">
 					<div class="film-id d-none">{{ $item['id'] }}</div>
 					<div class="image-wrapper">
+					<a href="{{ route('show', ['id' => $item['id'], 'search-movie' => $searchWord] ) }}">
 						<img src=@if (empty($item['poster_path'])) "{{ asset('images/sample-movie.png') }}" @else "https://image.tmdb.org/t/p/w300{{ $item['poster_path'] }}" @endif alt="" class="film-image" >
+					</a>
 					</div>
 					<p class="h3 film-title">{{ $item['title'] }}</p>
 					<div class="h3 text-yellow">★{{ $item['vote_average'] }}</div>

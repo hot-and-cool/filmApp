@@ -4,7 +4,7 @@ return [
 
     'api_key' =>env('API_KEY'),
     'base_url' => 'https://api.themoviedb.org/3/',
-    'region_url' => '&language=ja-JA&region=JP&',
+    'region_url' => '&language=ja&region=JP&',
 
     /*
     |--------------------------------------------------------------------------
